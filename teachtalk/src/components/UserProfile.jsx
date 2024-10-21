@@ -65,8 +65,8 @@ const UserProfile = () => {
     };
   
     return (
-      <div className="flex justify-center">
-        <div className="mx-auto max-w-2xl p-8 space-y-8">
+        <div className="flex justify-center min-h-screen">
+       <div className="mx-auto w-full max-w-4xl p-8 space-y-8">
           <div className="text-center">
             <div className="group relative mx-auto mb-4 h-32 w-32">
               <Avatar username={username} size="lg" />

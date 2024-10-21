@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { mockAPI } from '../services/mockAPI';
-
+import { Link } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow">
+      <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-2xl">
         <h2 className="text-center text-3xl font-bold text-gray-900">Teachtalk Messenger</h2>
         <form onSubmit={handleSubmit} className="space-y-6">
           <input
@@ -52,7 +52,14 @@ const Login = () => {
             {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
+        <div className="text-center text-sm">
+          <span className="text-gray-600">Don't have an account? </span>
+          <Link to="/register" className="font-medium text-blue-600 hover:text-blue-500">
+            Register
+          </Link>
+        </div>
       </div>
+
     </div>
   );
 };

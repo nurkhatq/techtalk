@@ -1,11 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Login from './components/Login';
-import Register from './components/Register';
-import ChatList from './components/ChatList';
-import ChatRoom from './components/ChatRoom';
-import UserProfile from './components/UserProfile';
-import ProtectedRoute from './components/ProtectedRoute';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import Login from './components/Login'
+import Register from './components/Register'
+import ChatList from './components/ChatList'
+import ChatRoom from './components/ChatRoom'
+import UserProfile from './components/UserProfile'
+import AudioCall from './components/AudioCall'
+import VideoCall from './components/VideoCall'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const App = () => {
   return (
@@ -28,10 +30,20 @@ const App = () => {
             <UserProfile />
           </ProtectedRoute>
         } />
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/call/audio" element={
+          <ProtectedRoute>
+            <AudioCall />
+          </ProtectedRoute>
+        } />
+        <Route path="/call/video" element={
+          <ProtectedRoute>
+            <VideoCall />
+          </ProtectedRoute>
+        } />
+        <Route path="/" element={<Navigate to="/register" />} />
       </Routes>
     </Router>
-  );
-};
+  )
+}
 
-export default App;
+export default App
